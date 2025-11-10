@@ -1,0 +1,100 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/intelFPGA_lite/18.1/BTCar/simulation/qsim
+Ebtcar
+Z1 w1669324676
+Z2 DPx11 fiftyfivenm 21 fiftyfivenm_atom_pack 0 22 7d5Xo;QBOkc31OfQTzSXV0
+Z3 DPx11 fiftyfivenm 22 fiftyfivenm_components 0 22 IfY7Mh2WPBc;@7U@3<I^[0
+Z4 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z5 DPx6 altera 11 dffeas_pack 0 22 :S1C`o89Vbe5bV6`:6CaB3
+Z6 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z7 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z8 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z9 DPx6 altera 28 altera_primitives_components 0 22 z?[99Tn<@QGNik3V1c6ah1
+R0
+Z10 8BTCar.vho
+Z11 FBTCar.vho
+l0
+L36
+VV:DlPKzX==ON1odQj6hNg3
+!s100 [k<6;gS@1_C<H4b_NT2MR3
+Z12 OV;C;10.5b;63
+32
+Z13 !s110 1669324677
+!i10b 1
+Z14 !s108 1669324677.000000
+Z15 !s90 -work|work|BTCar.vho|
+Z16 !s107 BTCar.vho|
+!i113 1
+Z17 o-work work
+Z18 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+DEx4 work 5 btcar 0 22 V:DlPKzX==ON1odQj6hNg3
+l162
+L51
+V<f<fceaL2JdN6UmYd7cEB3
+!s100 7k@1`7SQKY0FY`PgjZSNW0
+R12
+32
+R13
+!i10b 1
+R14
+R15
+R16
+!i113 1
+R17
+R18
+Ebtcar_vhd_vec_tst
+Z19 w1669324675
+R7
+R8
+R0
+Z20 8Waveform1.vwf.vht
+Z21 FWaveform1.vwf.vht
+l0
+L31
+VAT:E5cHg:`d6YOjdzn3bS2
+!s100 VAdSRlFGV6GSb4`>]GG763
+R12
+32
+R13
+!i10b 1
+R14
+Z22 !s90 -work|work|Waveform1.vwf.vht|
+Z23 !s107 Waveform1.vwf.vht|
+!i113 1
+R17
+R18
+Abtcar_arch
+R7
+R8
+Z24 DEx4 work 17 btcar_vhd_vec_tst 0 22 AT:E5cHg:`d6YOjdzn3bS2
+l60
+L33
+VIHchooPc86_hid`^Oz]nd3
+!s100 e]S6d<Je;AaYU6a3E:[:93
+R12
+32
+R13
+!i10b 1
+R14
+R22
+R23
+!i113 1
+R17
+R18

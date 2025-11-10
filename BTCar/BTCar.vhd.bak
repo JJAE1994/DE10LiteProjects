@@ -1,0 +1,105 @@
+
+
+----------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+
+entity BTCar is
+
+	port 
+	(
+	clk, rst: in STD_LOGIC;
+	rx, in1, in2, in3, in4, enable_i, enable_d: out std_logic	
+	
+	);
+
+
+end BTCar;
+
+architecture Behavioral of BTCar is
+	
+	component uart_rx is
+	generic (BAUD_RATE: INTEGER:= 9600;
+			FREQUENCY: INTEGER := 50000000);
+		port (
+	clk: in STD_LOGIC;
+	rst: in STD_LOGIC;
+	rx: in STD_LOGIC;
+	
+	error: out STD_LOGIC;
+	busy: out STD_LOGIC;
+	data_valid: out STD_LOGIC;
+	data_received: out STD_LOGIC_VECTOR(7 downto 0)
+	
+	);
+	end component;
+	
+	signal s_error, s_busy_rx, s_data_valid: STD_LOGIC;
+	signal s_data_received:std_logic_vector(7 downto 0);
+	
+
+begin
+	
+	RX_UNIT: uart_rx
+	
+	port map (
+	clk=> clk,
+	rst=> rst,
+	rx => rx,
+	error => s_error,
+	busy => s_busy_rx,
+	data_valid => s_data_valid,
+	data_received => s_data_received
+	
+	);
+	
+	process(s_data_valid, s_data_received)
+	begin
+	if s_data_valid = '1' then
+		if s_data_received = "00110001" then
+			in1 <= '1';
+			in2 <= '0';
+			in3 <= '1';
+			in4 <= '0';
+			enable_i <= '1';
+			enable_d <='1';
+		elsif s_data_received = "00110010" then
+			in1 <= '1';
+			in2 <= '0';
+			in3 <= '0';
+			in4 <= '0';
+			enable_i <= '1';
+			enable_d <='0';
+		elsif s_data_received = "00110011" then
+			in1 <= '0';
+			in2 <= '0';
+			in3 <= '1';
+			in4 <= '0';
+			enable_i <= '0';
+			enable_d <='1';
+		elsif s_data_received = "00110011" then
+			in1 <= '0';
+			in2 <= '1';
+			in3 <= '0';
+			in4 <= '1';
+			enable_i <= '1';
+			enable_d <='1';
+		else
+			in1 <= '0';
+			in2 <= '0';
+			in3 <= '0';
+			in4 <= '0';
+			enable_i <= '0';
+			enable_d <='0';
+		end if;
+	else
+		in1 <= '0';
+		in2 <= '0';
+		in3 <= '0';
+		in4 <= '0';
+		enable_i <= '0';
+		enable_d <='0';
+	end if;
+	end process;
+end Behavioral;
