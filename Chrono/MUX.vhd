@@ -1,0 +1,23 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+entity MUX is
+port(
+	I0, I1, I2, I3:in std_logic_vector(3 downto 0);
+	sel:in std_logic_vector(1 downto 0);
+	Y:out std_logic_vector(3 downto 0)
+);
+end MUX;
+
+architecture test of MUX is
+begin
+	--I0 e I2 es A
+	--I1 e I3 es B
+	Y<=
+		I0 when sel="00" else
+		I1 when sel="01" else
+		I2 when sel="10" else
+		I3;
+	
+end test;

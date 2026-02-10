@@ -1,0 +1,100 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/intelFPGA_lite/Chrono/simulation/qsim
+Echrono
+Z1 w1637534549
+Z2 DPx11 fiftyfivenm 21 fiftyfivenm_atom_pack 0 22 7d5Xo;QBOkc31OfQTzSXV0
+Z3 DPx11 fiftyfivenm 22 fiftyfivenm_components 0 22 IfY7Mh2WPBc;@7U@3<I^[0
+Z4 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z5 DPx6 altera 11 dffeas_pack 0 22 :S1C`o89Vbe5bV6`:6CaB3
+Z6 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z7 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z8 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z9 DPx6 altera 28 altera_primitives_components 0 22 z?[99Tn<@QGNik3V1c6ah1
+R0
+Z10 8Chrono.vho
+Z11 FChrono.vho
+l0
+L36
+VUC@6^1RWG<a@g?A?`:0=z0
+!s100 D9hcS?GZQGoIlk7[`:8eU1
+Z12 OV;C;10.5b;63
+32
+Z13 !s110 1637534556
+!i10b 1
+Z14 !s108 1637534556.000000
+Z15 !s90 -work|work|Chrono.vho|
+Z16 !s107 Chrono.vho|
+!i113 1
+Z17 o-work work
+Z18 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+DEx4 work 6 chrono 0 22 UC@6^1RWG<a@g?A?`:0=z0
+l130
+L48
+V@[1^_SEYJOlil9fSIU19T0
+!s100 5bkMzUJnaQl^Ce05>H^7m0
+R12
+32
+R13
+!i10b 1
+R14
+R15
+R16
+!i113 1
+R17
+R18
+Echrono_vhd_vec_tst
+Z19 w1637534547
+R7
+R8
+R0
+Z20 8Waveform1.vwf.vht
+Z21 FWaveform1.vwf.vht
+l0
+L31
+VTHJ2144a^9UbBjV;hF:9h1
+!s100 1^_ELG96R0P7^h=6G4<[Z3
+R12
+32
+R13
+!i10b 1
+R14
+Z22 !s90 -work|work|Waveform1.vwf.vht|
+Z23 !s107 Waveform1.vwf.vht|
+!i113 1
+R17
+R18
+Achrono_arch
+R7
+R8
+Z24 DEx4 work 18 chrono_vhd_vec_tst 0 22 THJ2144a^9UbBjV;hF:9h1
+l54
+L33
+VGbiMDzleN2XnWZ4`ioOIN3
+!s100 aM_F=aLJ5<`:Rch`5X;M[2
+R12
+32
+R13
+!i10b 1
+R14
+R22
+R23
+!i113 1
+R17
+R18

@@ -1,0 +1,61 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "sevendisp[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sevendisp[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sevendisp[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sevendisp[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sevendisp[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sevendisp[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sevendisp[6]",
+					"strict" : false
+				},
+				{
+					"name" : "hab_US",
+					"strict" : false
+				},
+				{
+					"name" : "hab_DS",
+					"strict" : false
+				},
+				{
+					"name" : "hab_UM",
+					"strict" : false
+				},
+				{
+					"name" : "hab_DM",
+					"strict" : false
+				},
+				{
+					"name" : "clock_p",
+					"strict" : false
+				},
+				{
+					"name" : "clock_mux",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
