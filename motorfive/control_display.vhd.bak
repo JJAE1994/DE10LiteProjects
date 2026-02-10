@@ -1,0 +1,52 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity control_display is
+port(
+		binary:in std_logic_vector(6 downto 0);
+		pwm_brillo: in std_logic;
+		centenas, decenas, unidades: out std_logic_vector(7 downto 0)
+				
+		);
+end control_display;
+
+architecture test of control_display is
+component binary_to_bcd is
+port(
+		binario: in std_logic_vector(6 downto 0);
+		bcd: out std_logic_vector(11  downto 0)
+		);
+end component;
+
+component decoder_bcd_to_display is
+port(
+		bcd_digito: in std_logic_vector(3 downto 0);
+		digito: out std_logic_vector(7 downto 0)
+				
+		);
+end component;
+
+signal s_bcd: std_logic_vector(11 downto 0);
+signal s_digito_c, s_digito_d, s_digito_u: std_logic_vector(7 downto 0);
+begin
+
+
+BINTOBCD:binary_to_bcd
+port map(binary, s_bcd);
+DECOCENTENAS:decoder_bcd_to_display
+port map( s_bcd(11 downto 8), s_digito_c);
+DECODECENAS:decoder_bcd_to_display
+port map( s_bcd(7 downto 4), s_digito_d);
+DECOUNIDADES:decoder_bcd_to_display
+port map( s_bcd(3 downto 0), s_digito_u);
+
+centenas <= (not (pwm_brillo&pwm_brillo&pwm_brillo&pwm_brillo
+						&pwm_brillo&pwm_brillo&pwm_brillo&pwm_brillo)) or
+				s_digito_c;
+decenas <= (not (pwm_brillo&pwm_brillo&pwm_brillo&pwm_brillo
+						&pwm_brillo&pwm_brillo&pwm_brillo&pwm_brillo)) or
+				s_digito_d;
+unidades <= (not (pwm_brillo&pwm_brillo&pwm_brillo&pwm_brillo
+						&pwm_brillo&pwm_brillo&pwm_brillo&pwm_brillo)) or
+				s_digito_u;
+end test;	

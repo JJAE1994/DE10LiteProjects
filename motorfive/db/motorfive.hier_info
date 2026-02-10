@@ -1,0 +1,477 @@
+|motorfive
+clk => divf_vel_sim:PWMMOTOR.clk_50M
+clk => control_vel:CONTROLVEL.clk
+clk => control_motor:ONOFF.clk
+clk => divf_brillo_sim:PWMBRILLO.clk_50M
+clk => control_brillo:CONTROLBRILLO.clk
+speed_up => control_vel:CONTROLVEL.speed_up
+speed_down => control_vel:CONTROLVEL.speed_down
+start_stop => control_motor:ONOFF.start_stop
+brightness => control_brillo:CONTROLBRILLO.brightness
+motor <= control_motor:ONOFF.motor
+led_green <= control_motor:ONOFF.led_green
+led_red <= control_motor:ONOFF.led_red
+display_c[0] <= control_display:DISPLAY.centenas[0]
+display_c[1] <= control_display:DISPLAY.centenas[1]
+display_c[2] <= control_display:DISPLAY.centenas[2]
+display_c[3] <= control_display:DISPLAY.centenas[3]
+display_c[4] <= control_display:DISPLAY.centenas[4]
+display_c[5] <= control_display:DISPLAY.centenas[5]
+display_c[6] <= control_display:DISPLAY.centenas[6]
+display_d[0] <= control_display:DISPLAY.decenas[0]
+display_d[1] <= control_display:DISPLAY.decenas[1]
+display_d[2] <= control_display:DISPLAY.decenas[2]
+display_d[3] <= control_display:DISPLAY.decenas[3]
+display_d[4] <= control_display:DISPLAY.decenas[4]
+display_d[5] <= control_display:DISPLAY.decenas[5]
+display_d[6] <= control_display:DISPLAY.decenas[6]
+display_u[0] <= control_display:DISPLAY.unidades[0]
+display_u[1] <= control_display:DISPLAY.unidades[1]
+display_u[2] <= control_display:DISPLAY.unidades[2]
+display_u[3] <= control_display:DISPLAY.unidades[3]
+display_u[4] <= control_display:DISPLAY.unidades[4]
+display_u[5] <= control_display:DISPLAY.unidades[5]
+display_u[6] <= control_display:DISPLAY.unidades[6]
+
+
+|motorfive|divf_vel_sim:PWMMOTOR
+clk_50M => clk_20kHz_80~reg0.CLK
+clk_50M => clk_20kHz_60~reg0.CLK
+clk_50M => clk_20kHz_40~reg0.CLK
+clk_50M => clk_20kHz_20~reg0.CLK
+clk_50M => cuenta_f_80[0].CLK
+clk_50M => cuenta_f_80[1].CLK
+clk_50M => cuenta_f_80[2].CLK
+clk_50M => cuenta_f_80[3].CLK
+clk_50M => cuenta_f_80[4].CLK
+clk_50M => cuenta_f_80[5].CLK
+clk_50M => cuenta_f_60[0].CLK
+clk_50M => cuenta_f_60[1].CLK
+clk_50M => cuenta_f_60[2].CLK
+clk_50M => cuenta_f_60[3].CLK
+clk_50M => cuenta_f_60[4].CLK
+clk_50M => cuenta_f_60[5].CLK
+clk_50M => cuenta_f_40[0].CLK
+clk_50M => cuenta_f_40[1].CLK
+clk_50M => cuenta_f_40[2].CLK
+clk_50M => cuenta_f_40[3].CLK
+clk_50M => cuenta_f_40[4].CLK
+clk_50M => cuenta_f_40[5].CLK
+clk_50M => cuenta_f_20[0].CLK
+clk_50M => cuenta_f_20[1].CLK
+clk_50M => cuenta_f_20[2].CLK
+clk_50M => cuenta_f_20[3].CLK
+clk_50M => cuenta_f_20[4].CLK
+clk_50M => cuenta_f_20[5].CLK
+clk_20kHz_20 <= clk_20kHz_20~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk_20kHz_40 <= clk_20kHz_40~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk_20kHz_60 <= clk_20kHz_60~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk_20kHz_80 <= clk_20kHz_80~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk_20kHz_100 <= <VCC>
+
+
+|motorfive|mux_vel:MUXMOTOR
+v20 => v_motor.DATAB
+v40 => v_motor.DATAB
+v60 => v_motor.DATAB
+v80 => v_motor.DATAB
+v100 => v_motor.DATAB
+sel[0] => Equal0.IN1
+sel[0] => Equal1.IN2
+sel[0] => Equal2.IN1
+sel[0] => Equal3.IN2
+sel[0] => Equal4.IN2
+sel[1] => Equal0.IN0
+sel[1] => Equal1.IN1
+sel[1] => Equal2.IN2
+sel[1] => Equal3.IN1
+sel[1] => Equal4.IN1
+sel[2] => Equal0.IN2
+sel[2] => Equal1.IN0
+sel[2] => Equal2.IN0
+sel[2] => Equal3.IN0
+sel[2] => Equal4.IN0
+v_motor <= v_motor.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motorfive|control_vel:CONTROLVEL
+clk => debounce:antirreboteup.clk
+clk => debounce:antirrebotedown.clk
+clk => detector_flanco:detflancoup.clk
+clk => detector_flanco:detflancodown.clk
+clk => contador_mod5:CONTADOR.clk
+speed_up => debounce:antirreboteup.pb
+speed_down => debounce:antirrebotedown.pb
+sel_vel[0] <= contador_mod5:CONTADOR.sel_vel[0]
+sel_vel[1] <= contador_mod5:CONTADOR.sel_vel[1]
+sel_vel[2] <= contador_mod5:CONTADOR.sel_vel[2]
+
+
+|motorfive|control_vel:CONTROLVEL|debounce:antirreboteup
+clk => delay3.CLK
+clk => delay1.CLK
+clk => delay2.CLK
+pb => delay1.DATAIN
+pb_db <= pb_db.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motorfive|control_vel:CONTROLVEL|debounce:antirrebotedown
+clk => delay3.CLK
+clk => delay1.CLK
+clk => delay2.CLK
+pb => delay1.DATAIN
+pb_db <= pb_db.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motorfive|control_vel:CONTROLVEL|detector_flanco:detflancoup
+clk => s_q.CLK
+e => S.IN1
+e => s_q.DATAIN
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motorfive|control_vel:CONTROLVEL|detector_flanco:detflancodown
+clk => s_q.CLK
+e => S.IN1
+e => s_q.DATAIN
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motorfive|control_vel:CONTROLVEL|contador_mod5:CONTADOR
+clk => cuenta[0].CLK
+clk => cuenta[1].CLK
+clk => cuenta[2].CLK
+up_flanco => process_0.IN0
+up_flanco => process_0.IN0
+down_flanco => process_0.IN1
+down_flanco => process_0.IN1
+sel_vel[0] <= cuenta[0].DB_MAX_OUTPUT_PORT_TYPE
+sel_vel[1] <= cuenta[1].DB_MAX_OUTPUT_PORT_TYPE
+sel_vel[2] <= cuenta[2].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motorfive|control_motor:ONOFF
+clk => debounce:antirrebotestartstop.clk
+clk => on_off.CLK
+clk => detector_flanco:detflancostartstop.clk
+pwm_motor => motor.DATAA
+start_stop => debounce:antirrebotestartstop.pb
+motor <= motor.DB_MAX_OUTPUT_PORT_TYPE
+led_green <= on_off.DB_MAX_OUTPUT_PORT_TYPE
+led_red <= on_off.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motorfive|control_motor:ONOFF|debounce:antirrebotestartstop
+clk => delay3.CLK
+clk => delay1.CLK
+clk => delay2.CLK
+pb => delay1.DATAIN
+pb_db <= pb_db.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motorfive|control_motor:ONOFF|detector_flanco:detflancostartstop
+clk => s_q.CLK
+e => S.IN1
+e => s_q.DATAIN
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motorfive|mux_decoders:MUXDISPLAY
+disp20[0] => dc_binary.DATAB
+disp20[1] => dc_binary.DATAB
+disp20[2] => dc_binary.DATAB
+disp20[3] => dc_binary.DATAB
+disp20[4] => dc_binary.DATAB
+disp20[5] => dc_binary.DATAB
+disp20[6] => dc_binary.DATAB
+disp20[7] => dc_binary.DATAB
+disp20[8] => dc_binary.DATAB
+disp20[9] => dc_binary.DATAB
+disp20[10] => dc_binary.DATAB
+disp20[11] => dc_binary.DATAB
+disp20[12] => dc_binary.DATAB
+disp20[13] => dc_binary.DATAB
+disp20[14] => dc_binary.DATAB
+disp20[15] => dc_binary.DATAB
+disp20[16] => dc_binary.DATAB
+disp20[17] => dc_binary.DATAB
+disp20[18] => dc_binary.DATAB
+disp20[19] => dc_binary.DATAB
+disp20[20] => dc_binary.DATAB
+disp40[0] => dc_binary.DATAB
+disp40[1] => dc_binary.DATAB
+disp40[2] => dc_binary.DATAB
+disp40[3] => dc_binary.DATAB
+disp40[4] => dc_binary.DATAB
+disp40[5] => dc_binary.DATAB
+disp40[6] => dc_binary.DATAB
+disp40[7] => dc_binary.DATAB
+disp40[8] => dc_binary.DATAB
+disp40[9] => dc_binary.DATAB
+disp40[10] => dc_binary.DATAB
+disp40[11] => dc_binary.DATAB
+disp40[12] => dc_binary.DATAB
+disp40[13] => dc_binary.DATAB
+disp40[14] => dc_binary.DATAB
+disp40[15] => dc_binary.DATAB
+disp40[16] => dc_binary.DATAB
+disp40[17] => dc_binary.DATAB
+disp40[18] => dc_binary.DATAB
+disp40[19] => dc_binary.DATAB
+disp40[20] => dc_binary.DATAB
+disp60[0] => dc_binary.DATAB
+disp60[1] => dc_binary.DATAB
+disp60[2] => dc_binary.DATAB
+disp60[3] => dc_binary.DATAB
+disp60[4] => dc_binary.DATAB
+disp60[5] => dc_binary.DATAB
+disp60[6] => dc_binary.DATAB
+disp60[7] => dc_binary.DATAB
+disp60[8] => dc_binary.DATAB
+disp60[9] => dc_binary.DATAB
+disp60[10] => dc_binary.DATAB
+disp60[11] => dc_binary.DATAB
+disp60[12] => dc_binary.DATAB
+disp60[13] => dc_binary.DATAB
+disp60[14] => dc_binary.DATAB
+disp60[15] => dc_binary.DATAB
+disp60[16] => dc_binary.DATAB
+disp60[17] => dc_binary.DATAB
+disp60[18] => dc_binary.DATAB
+disp60[19] => dc_binary.DATAB
+disp60[20] => dc_binary.DATAB
+disp80[0] => dc_binary.DATAB
+disp80[1] => dc_binary.DATAB
+disp80[2] => dc_binary.DATAB
+disp80[3] => dc_binary.DATAB
+disp80[4] => dc_binary.DATAB
+disp80[5] => dc_binary.DATAB
+disp80[6] => dc_binary.DATAB
+disp80[7] => dc_binary.DATAB
+disp80[8] => dc_binary.DATAB
+disp80[9] => dc_binary.DATAB
+disp80[10] => dc_binary.DATAB
+disp80[11] => dc_binary.DATAB
+disp80[12] => dc_binary.DATAB
+disp80[13] => dc_binary.DATAB
+disp80[14] => dc_binary.DATAB
+disp80[15] => dc_binary.DATAB
+disp80[16] => dc_binary.DATAB
+disp80[17] => dc_binary.DATAB
+disp80[18] => dc_binary.DATAB
+disp80[19] => dc_binary.DATAB
+disp80[20] => dc_binary.DATAB
+disp100[0] => dc_binary.DATAB
+disp100[1] => dc_binary.DATAB
+disp100[2] => dc_binary.DATAB
+disp100[3] => dc_binary.DATAB
+disp100[4] => dc_binary.DATAB
+disp100[5] => dc_binary.DATAB
+disp100[6] => dc_binary.DATAB
+disp100[7] => dc_binary.DATAB
+disp100[8] => dc_binary.DATAB
+disp100[9] => dc_binary.DATAB
+disp100[10] => dc_binary.DATAB
+disp100[11] => dc_binary.DATAB
+disp100[12] => dc_binary.DATAB
+disp100[13] => dc_binary.DATAB
+disp100[14] => dc_binary.DATAB
+disp100[15] => dc_binary.DATAB
+disp100[16] => dc_binary.DATAB
+disp100[17] => dc_binary.DATAB
+disp100[18] => dc_binary.DATAB
+disp100[19] => dc_binary.DATAB
+disp100[20] => dc_binary.DATAB
+sel[0] => Equal0.IN1
+sel[0] => Equal1.IN2
+sel[0] => Equal2.IN1
+sel[0] => Equal3.IN2
+sel[0] => Equal4.IN2
+sel[1] => Equal0.IN0
+sel[1] => Equal1.IN1
+sel[1] => Equal2.IN2
+sel[1] => Equal3.IN1
+sel[1] => Equal4.IN1
+sel[2] => Equal0.IN2
+sel[2] => Equal1.IN0
+sel[2] => Equal2.IN0
+sel[2] => Equal3.IN0
+sel[2] => Equal4.IN0
+dc_binary[0] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[1] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[2] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[3] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[4] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[5] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[6] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[7] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[8] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[9] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[10] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[11] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[12] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[13] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[14] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[15] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[16] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[17] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[18] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[19] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+dc_binary[20] <= dc_binary.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motorfive|control_display:DISPLAY
+binary[0] => unidades.IN0
+binary[1] => unidades.IN0
+binary[2] => unidades.IN0
+binary[3] => unidades.IN0
+binary[4] => unidades.IN0
+binary[5] => unidades.IN0
+binary[6] => unidades.IN0
+binary[7] => decenas.IN0
+binary[8] => decenas.IN0
+binary[9] => decenas.IN0
+binary[10] => decenas.IN0
+binary[11] => decenas.IN0
+binary[12] => decenas.IN0
+binary[13] => decenas.IN0
+binary[14] => centenas.IN0
+binary[15] => centenas.IN0
+binary[16] => centenas.IN0
+binary[17] => centenas.IN0
+binary[18] => centenas.IN0
+binary[19] => centenas.IN0
+binary[20] => centenas.IN0
+pwm_brillo => centenas.IN1
+pwm_brillo => centenas.IN1
+pwm_brillo => centenas.IN1
+pwm_brillo => centenas.IN1
+pwm_brillo => centenas.IN1
+pwm_brillo => centenas.IN1
+pwm_brillo => centenas.IN1
+pwm_brillo => decenas.IN1
+pwm_brillo => decenas.IN1
+pwm_brillo => decenas.IN1
+pwm_brillo => decenas.IN1
+pwm_brillo => decenas.IN1
+pwm_brillo => decenas.IN1
+pwm_brillo => decenas.IN1
+pwm_brillo => unidades.IN1
+pwm_brillo => unidades.IN1
+pwm_brillo => unidades.IN1
+pwm_brillo => unidades.IN1
+pwm_brillo => unidades.IN1
+pwm_brillo => unidades.IN1
+pwm_brillo => unidades.IN1
+centenas[0] <= centenas.DB_MAX_OUTPUT_PORT_TYPE
+centenas[1] <= centenas.DB_MAX_OUTPUT_PORT_TYPE
+centenas[2] <= centenas.DB_MAX_OUTPUT_PORT_TYPE
+centenas[3] <= centenas.DB_MAX_OUTPUT_PORT_TYPE
+centenas[4] <= centenas.DB_MAX_OUTPUT_PORT_TYPE
+centenas[5] <= centenas.DB_MAX_OUTPUT_PORT_TYPE
+centenas[6] <= centenas.DB_MAX_OUTPUT_PORT_TYPE
+decenas[0] <= decenas.DB_MAX_OUTPUT_PORT_TYPE
+decenas[1] <= decenas.DB_MAX_OUTPUT_PORT_TYPE
+decenas[2] <= decenas.DB_MAX_OUTPUT_PORT_TYPE
+decenas[3] <= decenas.DB_MAX_OUTPUT_PORT_TYPE
+decenas[4] <= decenas.DB_MAX_OUTPUT_PORT_TYPE
+decenas[5] <= decenas.DB_MAX_OUTPUT_PORT_TYPE
+decenas[6] <= decenas.DB_MAX_OUTPUT_PORT_TYPE
+unidades[0] <= unidades.DB_MAX_OUTPUT_PORT_TYPE
+unidades[1] <= unidades.DB_MAX_OUTPUT_PORT_TYPE
+unidades[2] <= unidades.DB_MAX_OUTPUT_PORT_TYPE
+unidades[3] <= unidades.DB_MAX_OUTPUT_PORT_TYPE
+unidades[4] <= unidades.DB_MAX_OUTPUT_PORT_TYPE
+unidades[5] <= unidades.DB_MAX_OUTPUT_PORT_TYPE
+unidades[6] <= unidades.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motorfive|divf_brillo_sim:PWMBRILLO
+clk_50M => clk_100kHz_80~reg0.CLK
+clk_50M => clk_100kHz_50~reg0.CLK
+clk_50M => clk_100kHz_20~reg0.CLK
+clk_50M => clk_100kHz_10~reg0.CLK
+clk_50M => cuenta_f_80[0].CLK
+clk_50M => cuenta_f_80[1].CLK
+clk_50M => cuenta_f_80[2].CLK
+clk_50M => cuenta_f_80[3].CLK
+clk_50M => cuenta_f_50[0].CLK
+clk_50M => cuenta_f_50[1].CLK
+clk_50M => cuenta_f_50[2].CLK
+clk_50M => cuenta_f_50[3].CLK
+clk_50M => cuenta_f_20[0].CLK
+clk_50M => cuenta_f_20[1].CLK
+clk_50M => cuenta_f_20[2].CLK
+clk_50M => cuenta_f_20[3].CLK
+clk_50M => cuenta_f_10[0].CLK
+clk_50M => cuenta_f_10[1].CLK
+clk_50M => cuenta_f_10[2].CLK
+clk_50M => cuenta_f_10[3].CLK
+clk_100kHz_10 <= clk_100kHz_10~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk_100kHz_20 <= clk_100kHz_20~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk_100kHz_50 <= clk_100kHz_50~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk_100kHz_80 <= clk_100kHz_80~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk_100kHz_100 <= <VCC>
+
+
+|motorfive|mux_vel:MUXBRILLO
+v20 => v_motor.DATAB
+v40 => v_motor.DATAB
+v60 => v_motor.DATAB
+v80 => v_motor.DATAB
+v100 => v_motor.DATAB
+sel[0] => Equal0.IN1
+sel[0] => Equal1.IN2
+sel[0] => Equal2.IN1
+sel[0] => Equal3.IN2
+sel[0] => Equal4.IN2
+sel[1] => Equal0.IN0
+sel[1] => Equal1.IN1
+sel[1] => Equal2.IN2
+sel[1] => Equal3.IN1
+sel[1] => Equal4.IN1
+sel[2] => Equal0.IN2
+sel[2] => Equal1.IN0
+sel[2] => Equal2.IN0
+sel[2] => Equal3.IN0
+sel[2] => Equal4.IN0
+v_motor <= v_motor.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motorfive|control_brillo:CONTROLBRILLO
+clk => debounce:antirrebotebrillo.clk
+clk => detector_flanco:detflancobrightness.clk
+clk => contador_brillo:CONTADORBRILLO.clk
+brightness => debounce:antirrebotebrillo.pb
+sel_brillo[0] <= contador_brillo:CONTADORBRILLO.sel_brillo[0]
+sel_brillo[1] <= contador_brillo:CONTADORBRILLO.sel_brillo[1]
+sel_brillo[2] <= contador_brillo:CONTADORBRILLO.sel_brillo[2]
+
+
+|motorfive|control_brillo:CONTROLBRILLO|debounce:antirrebotebrillo
+clk => delay3.CLK
+clk => delay1.CLK
+clk => delay2.CLK
+pb => delay1.DATAIN
+pb_db <= pb_db.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motorfive|control_brillo:CONTROLBRILLO|detector_flanco:detflancobrightness
+clk => s_q.CLK
+e => S.IN1
+e => s_q.DATAIN
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motorfive|control_brillo:CONTROLBRILLO|contador_brillo:CONTADORBRILLO
+clk => cuenta[0].CLK
+clk => cuenta[1].CLK
+clk => cuenta[2].CLK
+brillo => cuenta[0].ENA
+brillo => cuenta[1].ENA
+brillo => cuenta[2].ENA
+sel_brillo[0] <= cuenta[0].DB_MAX_OUTPUT_PORT_TYPE
+sel_brillo[1] <= cuenta[1].DB_MAX_OUTPUT_PORT_TYPE
+sel_brillo[2] <= cuenta[2].DB_MAX_OUTPUT_PORT_TYPE
+
+

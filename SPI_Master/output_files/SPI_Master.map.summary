@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Thu Jul 20 12:17:58 2023
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : SPI_Master
+Top-level Entity Name : SPI_Master
+Family : MAX 10
+Total logic elements : 153
+    Total combinational functions : 146
+    Dedicated logic registers : 61
+Total registers : 61
+Total pins : 7
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

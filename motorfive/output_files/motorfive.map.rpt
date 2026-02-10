@@ -1,0 +1,488 @@
+Analysis & Synthesis report for motorfive
+Sat Feb 04 10:33:43 2023
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Port Connectivity Checks: "mux_decoders:MUXDISPLAY"
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Feb 04 10:33:43 2023       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; motorfive                                   ;
+; Top-level Entity Name              ; motorfive                                   ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 78                                          ;
+;     Total combinational functions  ; 70                                          ;
+;     Dedicated logic registers      ; 41                                          ;
+; Total registers                    ; 41                                          ;
+; Total pins                         ; 29                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; motorfive          ; motorfive          ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                       ;
++----------------------------------+-----------------+-----------------+---------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------+---------+
+; debounce.vhd                     ; yes             ; User VHDL File  ; D:/Escritorio/motorfive/debounce.vhd        ;         ;
+; mux_vel.vhd                      ; yes             ; User VHDL File  ; D:/Escritorio/motorfive/mux_vel.vhd         ;         ;
+; mux_decoders.vhd                 ; yes             ; User VHDL File  ; D:/Escritorio/motorfive/mux_decoders.vhd    ;         ;
+; detector_flanco.vhd              ; yes             ; User VHDL File  ; D:/Escritorio/motorfive/detector_flanco.vhd ;         ;
+; control_vel.vhd                  ; yes             ; User VHDL File  ; D:/Escritorio/motorfive/control_vel.vhd     ;         ;
+; control_motor.vhd                ; yes             ; User VHDL File  ; D:/Escritorio/motorfive/control_motor.vhd   ;         ;
+; control_display.vhd              ; yes             ; User VHDL File  ; D:/Escritorio/motorfive/control_display.vhd ;         ;
+; control_brillo.vhd               ; yes             ; User VHDL File  ; D:/Escritorio/motorfive/control_brillo.vhd  ;         ;
+; contador_mod5.vhd                ; yes             ; User VHDL File  ; D:/Escritorio/motorfive/contador_mod5.vhd   ;         ;
+; contador_brillo.vhd              ; yes             ; User VHDL File  ; D:/Escritorio/motorfive/contador_brillo.vhd ;         ;
+; motorfive.vhd                    ; yes             ; User VHDL File  ; D:/Escritorio/motorfive/motorfive.vhd       ;         ;
+; divf_vel_sim.vhd                 ; yes             ; User VHDL File  ; D:/Escritorio/motorfive/divf_vel_sim.vhd    ;         ;
+; divf_brillo_sim.vhd              ; yes             ; User VHDL File  ; D:/Escritorio/motorfive/divf_brillo_sim.vhd ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 78        ;
+;                                             ;           ;
+; Total combinational functions               ; 70        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 36        ;
+;     -- 3 input functions                    ; 13        ;
+;     -- <=2 input functions                  ; 21        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 65        ;
+;     -- arithmetic mode                      ; 5         ;
+;                                             ;           ;
+; Total registers                             ; 41        ;
+;     -- Dedicated logic registers            ; 41        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 29        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 41        ;
+; Total fan-out                               ; 358       ;
+; Average fan-out                             ; 2.12      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                             ;
++---------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                  ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                         ; Entity Name     ; Library Name ;
++---------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------+-----------------+--------------+
+; |motorfive                                  ; 70 (0)              ; 41 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 29   ; 0            ; 0          ; |motorfive                                                                  ; motorfive       ; work         ;
+;    |control_brillo:CONTROLBRILLO|           ; 6 (0)               ; 7 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|control_brillo:CONTROLBRILLO                                     ; control_brillo  ; work         ;
+;       |contador_brillo:CONTADORBRILLO|      ; 3 (3)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|control_brillo:CONTROLBRILLO|contador_brillo:CONTADORBRILLO      ; contador_brillo ; work         ;
+;       |debounce:antirrebotebrillo|          ; 2 (2)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|control_brillo:CONTROLBRILLO|debounce:antirrebotebrillo          ; debounce        ; work         ;
+;       |detector_flanco:detflancobrightness| ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|control_brillo:CONTROLBRILLO|detector_flanco:detflancobrightness ; detector_flanco ; work         ;
+;    |control_display:DISPLAY|                ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|control_display:DISPLAY                                          ; control_display ; work         ;
+;    |control_motor:ONOFF|                    ; 4 (2)               ; 5 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|control_motor:ONOFF                                              ; control_motor   ; work         ;
+;       |debounce:antirrebotestartstop|       ; 2 (2)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|control_motor:ONOFF|debounce:antirrebotestartstop                ; debounce        ; work         ;
+;       |detector_flanco:detflancostartstop|  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|control_motor:ONOFF|detector_flanco:detflancostartstop           ; detector_flanco ; work         ;
+;    |control_vel:CONTROLVEL|                 ; 14 (0)              ; 11 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|control_vel:CONTROLVEL                                           ; control_vel     ; work         ;
+;       |contador_mod5:CONTADOR|              ; 10 (10)             ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|control_vel:CONTROLVEL|contador_mod5:CONTADOR                    ; contador_mod5   ; work         ;
+;       |debounce:antirrebotedown|            ; 2 (2)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|control_vel:CONTROLVEL|debounce:antirrebotedown                  ; debounce        ; work         ;
+;       |debounce:antirreboteup|              ; 2 (2)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|control_vel:CONTROLVEL|debounce:antirreboteup                    ; debounce        ; work         ;
+;       |detector_flanco:detflancodown|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|control_vel:CONTROLVEL|detector_flanco:detflancodown             ; detector_flanco ; work         ;
+;       |detector_flanco:detflancoup|         ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|control_vel:CONTROLVEL|detector_flanco:detflancoup               ; detector_flanco ; work         ;
+;    |divf_brillo_sim:PWMBRILLO|              ; 12 (12)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|divf_brillo_sim:PWMBRILLO                                        ; divf_brillo_sim ; work         ;
+;    |divf_vel_sim:PWMMOTOR|                  ; 22 (22)             ; 10 (10)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|divf_vel_sim:PWMMOTOR                                            ; divf_vel_sim    ; work         ;
+;    |mux_decoders:MUXDISPLAY|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|mux_decoders:MUXDISPLAY                                          ; mux_decoders    ; work         ;
+;    |mux_vel:MUXBRILLO|                      ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|mux_vel:MUXBRILLO                                                ; mux_vel         ; work         ;
+;    |mux_vel:MUXMOTOR|                       ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |motorfive|mux_vel:MUXMOTOR                                                 ; mux_vel         ; work         ;
++---------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                              ;
++------------------------------------------+------------------------------------------------------+
+; Register name                            ; Reason for Removal                                   ;
++------------------------------------------+------------------------------------------------------+
+; divf_vel_sim:PWMMOTOR|cuenta_f_40[5]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[5]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_60[5]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[5]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_80[5]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[5]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_40[4]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[4]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_60[4]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[4]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_80[4]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[4]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_40[3]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[3]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_60[3]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[3]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_80[3]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[3]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_40[2]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[2]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_60[2]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[2]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_80[2]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[2]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_40[1]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[1]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_60[1]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[1]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_80[1]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[1]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_40[0]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[0]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_60[0]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[0]     ;
+; divf_vel_sim:PWMMOTOR|cuenta_f_80[0]     ; Merged with divf_vel_sim:PWMMOTOR|cuenta_f_20[0]     ;
+; divf_brillo_sim:PWMBRILLO|cuenta_f_20[3] ; Merged with divf_brillo_sim:PWMBRILLO|cuenta_f_10[3] ;
+; divf_brillo_sim:PWMBRILLO|cuenta_f_50[3] ; Merged with divf_brillo_sim:PWMBRILLO|cuenta_f_10[3] ;
+; divf_brillo_sim:PWMBRILLO|cuenta_f_80[3] ; Merged with divf_brillo_sim:PWMBRILLO|cuenta_f_10[3] ;
+; divf_brillo_sim:PWMBRILLO|cuenta_f_20[2] ; Merged with divf_brillo_sim:PWMBRILLO|cuenta_f_10[2] ;
+; divf_brillo_sim:PWMBRILLO|cuenta_f_50[2] ; Merged with divf_brillo_sim:PWMBRILLO|cuenta_f_10[2] ;
+; divf_brillo_sim:PWMBRILLO|cuenta_f_80[2] ; Merged with divf_brillo_sim:PWMBRILLO|cuenta_f_10[2] ;
+; divf_brillo_sim:PWMBRILLO|cuenta_f_20[1] ; Merged with divf_brillo_sim:PWMBRILLO|cuenta_f_10[1] ;
+; divf_brillo_sim:PWMBRILLO|cuenta_f_50[1] ; Merged with divf_brillo_sim:PWMBRILLO|cuenta_f_10[1] ;
+; divf_brillo_sim:PWMBRILLO|cuenta_f_80[1] ; Merged with divf_brillo_sim:PWMBRILLO|cuenta_f_10[1] ;
+; divf_brillo_sim:PWMBRILLO|cuenta_f_20[0] ; Merged with divf_brillo_sim:PWMBRILLO|cuenta_f_10[0] ;
+; divf_brillo_sim:PWMBRILLO|cuenta_f_50[0] ; Merged with divf_brillo_sim:PWMBRILLO|cuenta_f_10[0] ;
+; divf_brillo_sim:PWMBRILLO|cuenta_f_80[0] ; Merged with divf_brillo_sim:PWMBRILLO|cuenta_f_10[0] ;
+; Total Number of Removed Registers = 30   ;                                                      ;
++------------------------------------------+------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 41    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 3     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------+
+; Inverted Register Statistics                                             ;
++----------------------------------------------------------------+---------+
+; Inverted Register                                              ; Fan out ;
++----------------------------------------------------------------+---------+
+; control_motor:ONOFF|debounce:antirrebotestartstop|delay3       ; 2       ;
+; control_motor:ONOFF|debounce:antirrebotestartstop|delay1       ; 3       ;
+; control_motor:ONOFF|debounce:antirrebotestartstop|delay2       ; 3       ;
+; control_vel:CONTROLVEL|debounce:antirrebotedown|delay3         ; 2       ;
+; control_vel:CONTROLVEL|debounce:antirrebotedown|delay1         ; 3       ;
+; control_vel:CONTROLVEL|debounce:antirrebotedown|delay2         ; 3       ;
+; control_vel:CONTROLVEL|debounce:antirreboteup|delay3           ; 2       ;
+; control_vel:CONTROLVEL|debounce:antirreboteup|delay1           ; 3       ;
+; control_vel:CONTROLVEL|debounce:antirreboteup|delay2           ; 3       ;
+; control_brillo:CONTROLBRILLO|debounce:antirrebotebrillo|delay3 ; 2       ;
+; control_brillo:CONTROLBRILLO|debounce:antirrebotebrillo|delay1 ; 3       ;
+; control_brillo:CONTROLBRILLO|debounce:antirrebotebrillo|delay2 ; 3       ;
+; Total number of inverted registers = 12                        ;         ;
++----------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 0 LEs                ; 4 LEs                  ; Yes        ; |motorfive|control_vel:CONTROLVEL|contador_mod5:CONTADOR|cuenta[1] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "mux_decoders:MUXDISPLAY" ;
++-----------------+-------+----------+----------------+
+; Port            ; Type  ; Severity ; Details        ;
++-----------------+-------+----------+----------------+
+; disp20[19..13]  ; Input ; Info     ; Stuck at GND   ;
+; disp20[11..10]  ; Input ; Info     ; Stuck at GND   ;
+; disp20[8..7]    ; Input ; Info     ; Stuck at GND   ;
+; disp20[5..0]    ; Input ; Info     ; Stuck at GND   ;
+; disp20[20]      ; Input ; Info     ; Stuck at VCC   ;
+; disp20[12]      ; Input ; Info     ; Stuck at VCC   ;
+; disp20[9]       ; Input ; Info     ; Stuck at VCC   ;
+; disp20[6]       ; Input ; Info     ; Stuck at VCC   ;
+; disp40[11..10]  ; Input ; Info     ; Stuck at VCC   ;
+; disp40[7..6]    ; Input ; Info     ; Stuck at VCC   ;
+; disp40[19..12]  ; Input ; Info     ; Stuck at GND   ;
+; disp40[9..8]    ; Input ; Info     ; Stuck at GND   ;
+; disp40[5..0]    ; Input ; Info     ; Stuck at GND   ;
+; disp40[20]      ; Input ; Info     ; Stuck at VCC   ;
+; disp60[19..9]   ; Input ; Info     ; Stuck at GND   ;
+; disp60[5..0]    ; Input ; Info     ; Stuck at GND   ;
+; disp60[20]      ; Input ; Info     ; Stuck at VCC   ;
+; disp60[8]       ; Input ; Info     ; Stuck at VCC   ;
+; disp60[7]       ; Input ; Info     ; Stuck at GND   ;
+; disp60[6]       ; Input ; Info     ; Stuck at VCC   ;
+; disp80[19..7]   ; Input ; Info     ; Stuck at GND   ;
+; disp80[5..0]    ; Input ; Info     ; Stuck at GND   ;
+; disp80[20]      ; Input ; Info     ; Stuck at VCC   ;
+; disp80[6]       ; Input ; Info     ; Stuck at VCC   ;
+; disp100[20..17] ; Input ; Info     ; Stuck at VCC   ;
+; disp100[14..13] ; Input ; Info     ; Stuck at VCC   ;
+; disp100[16..15] ; Input ; Info     ; Stuck at GND   ;
+; disp100[12..7]  ; Input ; Info     ; Stuck at GND   ;
+; disp100[5..0]   ; Input ; Info     ; Stuck at GND   ;
+; disp100[6]      ; Input ; Info     ; Stuck at VCC   ;
++-----------------+-------+----------+----------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 29                          ;
+; cycloneiii_ff         ; 41                          ;
+;     ENA               ; 3                           ;
+;     plain             ; 38                          ;
+; cycloneiii_lcell_comb ; 72                          ;
+;     arith             ; 5                           ;
+;         2 data inputs ; 5                           ;
+;     normal            ; 67                          ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 11                          ;
+;         3 data inputs ; 13                          ;
+;         4 data inputs ; 36                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.35                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Sat Feb 04 10:33:10 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off motorfive -c motorfive
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file debounce.vhd
+    Info (12022): Found design unit 1: debounce-test File: D:/Escritorio/motorfive/debounce.vhd Line: 12
+    Info (12023): Found entity 1: debounce File: D:/Escritorio/motorfive/debounce.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux_vel.vhd
+    Info (12022): Found design unit 1: mux_vel-test File: D:/Escritorio/motorfive/mux_vel.vhd Line: 13
+    Info (12023): Found entity 1: mux_vel File: D:/Escritorio/motorfive/mux_vel.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux_decoders.vhd
+    Info (12022): Found design unit 1: mux_decoders-test File: D:/Escritorio/motorfive/mux_decoders.vhd Line: 13
+    Info (12023): Found entity 1: mux_decoders File: D:/Escritorio/motorfive/mux_decoders.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file divf_vel.vhd
+    Info (12022): Found design unit 1: divf_vel-test File: D:/Escritorio/motorfive/divf_vel.vhd Line: 13
+    Info (12023): Found entity 1: divf_vel File: D:/Escritorio/motorfive/divf_vel.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file divf_brillo.vhd
+    Info (12022): Found design unit 1: divf_brillo-test File: D:/Escritorio/motorfive/divf_brillo.vhd Line: 14
+    Info (12023): Found entity 1: divf_brillo File: D:/Escritorio/motorfive/divf_brillo.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file detector_flanco.vhd
+    Info (12022): Found design unit 1: detector_flanco-test File: D:/Escritorio/motorfive/detector_flanco.vhd Line: 12
+    Info (12023): Found entity 1: detector_flanco File: D:/Escritorio/motorfive/detector_flanco.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file control_vel.vhd
+    Info (12022): Found design unit 1: control_vel-test File: D:/Escritorio/motorfive/control_vel.vhd Line: 12
+    Info (12023): Found entity 1: control_vel File: D:/Escritorio/motorfive/control_vel.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file control_motor.vhd
+    Info (12022): Found design unit 1: control_motor-test File: D:/Escritorio/motorfive/control_motor.vhd Line: 12
+    Info (12023): Found entity 1: control_motor File: D:/Escritorio/motorfive/control_motor.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file control_display.vhd
+    Info (12022): Found design unit 1: control_display-test File: D:/Escritorio/motorfive/control_display.vhd Line: 13
+    Info (12023): Found entity 1: control_display File: D:/Escritorio/motorfive/control_display.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file control_brillo.vhd
+    Info (12022): Found design unit 1: control_brillo-test File: D:/Escritorio/motorfive/control_brillo.vhd Line: 12
+    Info (12023): Found entity 1: control_brillo File: D:/Escritorio/motorfive/control_brillo.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file contador_mod5.vhd
+    Info (12022): Found design unit 1: contador_mod5-test File: D:/Escritorio/motorfive/contador_mod5.vhd Line: 13
+    Info (12023): Found entity 1: contador_mod5 File: D:/Escritorio/motorfive/contador_mod5.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file contador_brillo.vhd
+    Info (12022): Found design unit 1: contador_brillo-test File: D:/Escritorio/motorfive/contador_brillo.vhd Line: 13
+    Info (12023): Found entity 1: contador_brillo File: D:/Escritorio/motorfive/contador_brillo.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file motorfive.vhd
+    Info (12022): Found design unit 1: motorfive-test File: D:/Escritorio/motorfive/motorfive.vhd Line: 13
+    Info (12023): Found entity 1: motorfive File: D:/Escritorio/motorfive/motorfive.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file divf_vel_sim.vhd
+    Info (12022): Found design unit 1: divf_vel_sim-test File: D:/Escritorio/motorfive/divf_vel_sim.vhd Line: 13
+    Info (12023): Found entity 1: divf_vel_sim File: D:/Escritorio/motorfive/divf_vel_sim.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file divf_brillo_sim.vhd
+    Info (12022): Found design unit 1: divf_brillo_sim-test File: D:/Escritorio/motorfive/divf_brillo_sim.vhd Line: 13
+    Info (12023): Found entity 1: divf_brillo_sim File: D:/Escritorio/motorfive/divf_brillo_sim.vhd Line: 4
+Info (12127): Elaborating entity "motorfive" for the top level hierarchy
+Info (12128): Elaborating entity "divf_vel_sim" for hierarchy "divf_vel_sim:PWMMOTOR" File: D:/Escritorio/motorfive/motorfive.vhd Line: 91
+Info (12128): Elaborating entity "mux_vel" for hierarchy "mux_vel:MUXMOTOR" File: D:/Escritorio/motorfive/motorfive.vhd Line: 93
+Info (12128): Elaborating entity "control_vel" for hierarchy "control_vel:CONTROLVEL" File: D:/Escritorio/motorfive/motorfive.vhd Line: 95
+Info (12128): Elaborating entity "debounce" for hierarchy "control_vel:CONTROLVEL|debounce:antirreboteup" File: D:/Escritorio/motorfive/control_vel.vhd Line: 41
+Info (12128): Elaborating entity "detector_flanco" for hierarchy "control_vel:CONTROLVEL|detector_flanco:detflancoup" File: D:/Escritorio/motorfive/control_vel.vhd Line: 45
+Info (12128): Elaborating entity "contador_mod5" for hierarchy "control_vel:CONTROLVEL|contador_mod5:CONTADOR" File: D:/Escritorio/motorfive/control_vel.vhd Line: 49
+Info (12128): Elaborating entity "control_motor" for hierarchy "control_motor:ONOFF" File: D:/Escritorio/motorfive/motorfive.vhd Line: 97
+Info (12128): Elaborating entity "mux_decoders" for hierarchy "mux_decoders:MUXDISPLAY" File: D:/Escritorio/motorfive/motorfive.vhd Line: 99
+Info (12128): Elaborating entity "control_display" for hierarchy "control_display:DISPLAY" File: D:/Escritorio/motorfive/motorfive.vhd Line: 101
+Info (12128): Elaborating entity "divf_brillo_sim" for hierarchy "divf_brillo_sim:PWMBRILLO" File: D:/Escritorio/motorfive/motorfive.vhd Line: 103
+Info (12128): Elaborating entity "control_brillo" for hierarchy "control_brillo:CONTROLBRILLO" File: D:/Escritorio/motorfive/motorfive.vhd Line: 107
+Info (12128): Elaborating entity "contador_brillo" for hierarchy "control_brillo:CONTROLBRILLO|contador_brillo:CONTADORBRILLO" File: D:/Escritorio/motorfive/control_brillo.vhd Line: 45
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 108 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 24 output pins
+    Info (21061): Implemented 79 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4797 megabytes
+    Info: Processing ended: Sat Feb 04 10:33:43 2023
+    Info: Elapsed time: 00:00:33
+    Info: Total CPU time (on all processors): 00:00:25
+
+

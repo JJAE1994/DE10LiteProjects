@@ -1,0 +1,90 @@
+|SPI_Choque
+clk => divisor_frecuencia:DIVF.clk_in
+clk => muestreador:REQUESTREAD.clk_in
+reset => SPI_FSM:FSM.reset
+MISO => SPI_FSM:FSM.MISO
+MOSI << SPI_FSM:FSM.MOSI
+CS << SPI_FSM:FSM.CS
+SCK << SPI_FSM:FSM.SCK
+buzzer << process_0.DB_MAX_OUTPUT_PORT_TYPE
+dato_rx[0] << SPI_FSM:FSM.dato_rx[0]
+dato_rx[1] << SPI_FSM:FSM.dato_rx[1]
+dato_rx[2] << SPI_FSM:FSM.dato_rx[2]
+dato_rx[3] << SPI_FSM:FSM.dato_rx[3]
+dato_rx[4] << SPI_FSM:FSM.dato_rx[4]
+dato_rx[5] << SPI_FSM:FSM.dato_rx[5]
+dato_rx[6] << SPI_FSM:FSM.dato_rx[6]
+dato_rx[7] << SPI_FSM:FSM.dato_rx[7]
+
+
+|SPI_Choque|SPI_FSM:FSM
+clk => SCK.DATAB
+clk => pr_state~1.DATAIN
+medir => Selector1.IN3
+medir => s_cs.DATAIN
+medir => Selector0.IN2
+medir => Selector5.IN0
+reset => pr_state~3.DATAIN
+MISO => dato[0].DATAIN
+MISO => dato[1].DATAIN
+MISO => dato[2].DATAIN
+MISO => dato[3].DATAIN
+MISO => dato[4].DATAIN
+MISO => dato[5].DATAIN
+MISO => dato[6].DATAIN
+MISO => dato[7].DATAIN
+MOSI <= MOSI.DB_MAX_OUTPUT_PORT_TYPE
+CS <= s_cs.DB_MAX_OUTPUT_PORT_TYPE
+SCK <= SCK.DB_MAX_OUTPUT_PORT_TYPE
+dato_rx[0] <= dato_rx[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dato_rx[1] <= dato_rx[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dato_rx[2] <= dato_rx[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dato_rx[3] <= dato_rx[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dato_rx[4] <= dato_rx[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dato_rx[5] <= dato_rx[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dato_rx[6] <= dato_rx[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dato_rx[7] <= dato_rx[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SPI_Choque|divisor_frecuencia:DIVF
+clk_in => clk_out~reg0.CLK
+clk_in => count[0].CLK
+clk_in => count[1].CLK
+clk_in => count[2].CLK
+clk_in => count[3].CLK
+clk_in => count[4].CLK
+clk_in => count[5].CLK
+clk_in => count[6].CLK
+clk_in => count[7].CLK
+clk_in => count[8].CLK
+clk_out <= clk_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SPI_Choque|muestreador:REQUESTREAD
+clk_in => clk_out~reg0.CLK
+clk_in => count[0].CLK
+clk_in => count[1].CLK
+clk_in => count[2].CLK
+clk_in => count[3].CLK
+clk_in => count[4].CLK
+clk_in => count[5].CLK
+clk_in => count[6].CLK
+clk_in => count[7].CLK
+clk_in => count[8].CLK
+clk_in => count[9].CLK
+clk_in => count[10].CLK
+clk_in => count[11].CLK
+clk_in => count[12].CLK
+clk_in => count[13].CLK
+clk_in => count[14].CLK
+clk_in => count[15].CLK
+clk_in => count[16].CLK
+clk_in => count[17].CLK
+clk_in => count[18].CLK
+clk_in => count[19].CLK
+clk_in => count[20].CLK
+clk_in => count[21].CLK
+clk_in => count[22].CLK
+clk_out <= clk_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,128 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity SPI_Master is
+port ( 	clk, reset, MISO: in std_logic;
+       	MOSI, CS: out std_logic
+		);
+end SPI_Master;
+
+architecture Behavioral of SPI_Master is
+signal instr_leer: std_logic_vector(7 downto 0):= X"05";
+signal dato, dato_rx: std_logic_vector(7 downto 0);
+
+singal s_mosi:std_logic:='1';
+
+type state is (idle, b7,b6,b5,b4,b3,b2,b1,b0, fintx, a7, a6, a5, a4, a3, a2, a1, a0, fin);
+
+signal pr_state : state := idle;
+signal nx_state: state;
+
+begin
+
+process(clk, reset)
+begin
+
+	if reset='1' then
+		pr_state <= idle;
+	elsif clk'event and clk='1' then
+		pr_state <= nx_state;
+	end if;
+end process;
+
+-- Seccion superior
+process(medir, pr_state)
+begin
+	case pr_state is
+		when idle=>
+			s_mosi<='1';
+			if medir='1' then
+				CS<='0';
+				nx_state<=b7;
+			end if;
+			
+		when b7=>
+			s_mosi<=instr_leer(7);
+			nx_state<=b6;
+			
+		when b6=>
+			s_mosi<=instr_leer(6);
+			nx_state<=b5;
+			
+		when b5=>
+			s_mosi<=instr_leer(5);
+			nx_state<=b4;			
+			
+		when b4=>
+			s_mosi<=instr_leer(4);
+			nx_state<=b3;				
+			
+		when b3=>
+			s_mosi<=instr_leer(3);
+			nx_state<=b2;			
+			
+		when b2=>
+			s_mosi<=instr_leer(2);
+			nx_state<=b1;				
+			
+		when b1=>
+			s_mosi<=instr_leer(1);
+			nx_state<=b0;	
+
+		when b0=>
+			s_mosi<=instr_leer(0);
+			nx_state<=fintx;
+		
+		when fintx=>
+			s_mosi<='1';
+			if miso = 'Z' then
+				nx_state<=fintx;
+			else
+				nx_state<=a7;
+			end if;
+			
+		when a7=>
+			dato(7) <= miso; 
+			nx_state<=a6;
+			
+		when a6=>
+			dato(6) <= miso;
+			nx_state<=a5;
+			
+		when a5=>
+			dato(5) <= miso;
+			nx_state<=a4;	
+			
+		when a4=>
+			dato(4) <= miso;
+			nx_state<=a3;			
+			
+		when a3=>
+			dato(3) <= miso;
+			nx_state<=a2;		
+			
+		when a2=>
+			dato(2) <= miso;
+			nx_state<=a1;			
+			
+		when a1=>
+			dato(1) <= miso;
+			nx_state<=a0;
+
+		when a0=>
+			dato(0) <= miso;
+			nx_state<=fin;
+			
+		when fin=>
+			CS<='1';
+			dato_rx <= dato;		
+			nx_state<=idle;			
+			
+			
+	end case;
+end process;
+
+
+end Behavioral; 

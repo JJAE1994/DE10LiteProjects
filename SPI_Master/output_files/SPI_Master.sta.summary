@@ -1,0 +1,245 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -4.383
+TNS   : -110.682
+
+Type  : Slow 1200mV 85C Model Setup 'SPI_FSM:FSM|pr_state.fintx'
+Slack : -2.830
+TNS   : -22.722
+
+Type  : Slow 1200mV 85C Model Setup 'divisor_frecuencia:DIVF|clk_out'
+Slack : -2.475
+TNS   : -13.731
+
+Type  : Slow 1200mV 85C Model Setup 'SPI_FSM:FSM|pr_state.idle'
+Slack : -1.353
+TNS   : -1.353
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'SPI_FSM:FSM|pr_state.idle'
+Slack : 0.974
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'divisor_frecuencia:DIVF|clk_out'
+Slack : 1.075
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'SPI_FSM:FSM|pr_state.fintx'
+Slack : 1.565
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -75.956
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'divisor_frecuencia:DIVF|clk_out'
+Slack : -1.403
+TNS   : -12.627
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.fintx'
+Slack : 0.396
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b6'
+Slack : 0.417
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b0'
+Slack : 0.426
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.idle'
+Slack : 0.441
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'muestreador:REQUESTREAD|clk_out'
+Slack : 0.475
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b1'
+Slack : 0.479
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b2'
+Slack : 0.479
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b3'
+Slack : 0.479
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b4'
+Slack : 0.479
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b5'
+Slack : 0.479
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -4.009
+TNS   : -96.114
+
+Type  : Slow 1200mV 0C Model Setup 'SPI_FSM:FSM|pr_state.fintx'
+Slack : -2.493
+TNS   : -21.078
+
+Type  : Slow 1200mV 0C Model Setup 'divisor_frecuencia:DIVF|clk_out'
+Slack : -2.409
+TNS   : -13.513
+
+Type  : Slow 1200mV 0C Model Setup 'SPI_FSM:FSM|pr_state.idle'
+Slack : -1.151
+TNS   : -1.151
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.306
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SPI_FSM:FSM|pr_state.idle'
+Slack : 0.917
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'divisor_frecuencia:DIVF|clk_out'
+Slack : 0.944
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SPI_FSM:FSM|pr_state.fintx'
+Slack : 1.384
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -75.956
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'divisor_frecuencia:DIVF|clk_out'
+Slack : -1.403
+TNS   : -12.627
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b6'
+Slack : 0.425
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'muestreador:REQUESTREAD|clk_out'
+Slack : 0.429
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.fintx'
+Slack : 0.430
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b0'
+Slack : 0.435
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.idle'
+Slack : 0.451
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b1'
+Slack : 0.475
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b2'
+Slack : 0.475
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b3'
+Slack : 0.475
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b4'
+Slack : 0.475
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b5'
+Slack : 0.475
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -1.380
+TNS   : -18.783
+
+Type  : Fast 1200mV 0C Model Setup 'SPI_FSM:FSM|pr_state.fintx'
+Slack : -1.021
+TNS   : -5.410
+
+Type  : Fast 1200mV 0C Model Setup 'divisor_frecuencia:DIVF|clk_out'
+Slack : -0.705
+TNS   : -1.614
+
+Type  : Fast 1200mV 0C Model Setup 'SPI_FSM:FSM|pr_state.idle'
+Slack : -0.350
+TNS   : -0.350
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.148
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SPI_FSM:FSM|pr_state.idle'
+Slack : 0.404
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SPI_FSM:FSM|pr_state.fintx'
+Slack : 0.474
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'divisor_frecuencia:DIVF|clk_out'
+Slack : 0.480
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -56.667
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'divisor_frecuencia:DIVF|clk_out'
+Slack : -1.000
+TNS   : -9.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.fintx'
+Slack : 0.386
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.idle'
+Slack : 0.433
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'muestreador:REQUESTREAD|clk_out'
+Slack : 0.433
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b6'
+Slack : 0.462
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b0'
+Slack : 0.467
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b1'
+Slack : 0.497
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b2'
+Slack : 0.497
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b3'
+Slack : 0.497
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b4'
+Slack : 0.497
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SPI_FSM:FSM|pr_state.b5'
+Slack : 0.497
+TNS   : 0.000
+
+------------------------------------------------------------

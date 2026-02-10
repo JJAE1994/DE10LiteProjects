@@ -1,0 +1,14 @@
+
+State Machine - |SPI_Choque|SPI_FSM:FSM|pr_state
+Name pr_state.fintx pr_state.b0 pr_state.b1 pr_state.b2 pr_state.b3 pr_state.b4 pr_state.b5 pr_state.b6 pr_state.b7 pr_state.ready pr_state.idle 
+pr_state.idle 0 0 0 0 0 0 0 0 0 0 0 
+pr_state.ready 0 0 0 0 0 0 0 0 0 1 1 
+pr_state.b7 0 0 0 0 0 0 0 0 1 0 1 
+pr_state.b6 0 0 0 0 0 0 0 1 0 0 1 
+pr_state.b5 0 0 0 0 0 0 1 0 0 0 1 
+pr_state.b4 0 0 0 0 0 1 0 0 0 0 1 
+pr_state.b3 0 0 0 0 1 0 0 0 0 0 1 
+pr_state.b2 0 0 0 1 0 0 0 0 0 0 1 
+pr_state.b1 0 0 1 0 0 0 0 0 0 0 1 
+pr_state.b0 0 1 0 0 0 0 0 0 0 0 1 
+pr_state.fintx 1 0 0 0 0 0 0 0 0 0 1 

@@ -1,0 +1,33 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity muestreador is
+port ( 	clk_in: in std_logic;
+       	clk_out: out std_logic
+		);
+end muestreador;
+
+architecture Behavioral of muestreador is
+
+signal count: std_logic_vector(4 downto 0);
+
+begin
+
+process(clk_in)
+begin
+
+	if clk_in'event and clk_in='1' then
+			if count = 13 - 1 then				
+				count<=count+1;
+				clk_out<='1';
+			elsif count = 25 - 1 then
+				count<=(others=>'0');
+				clk_out<='0';
+			else
+				count<=count+1;
+			end if;
+	end if;
+end process;
+						
+end Behavioral; 

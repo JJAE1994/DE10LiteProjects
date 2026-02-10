@@ -1,0 +1,29 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+entity binary_to_bcd is
+port(
+		binario: in std_logic_vector(6 downto 0);
+		bcd: out std_logic_vector(11  downto 0)
+		);
+end binary_to_bcd;
+
+architecture test of binary_to_bcd is
+begin
+process(binario)
+variable becede:std_logic_vector(18 downto 0);
+begin
+becede:="000000000000"&binario;
+for I in 0 to 6 loop
+	if becede(10 downto 7)>=5 then
+		becede(10 downto 7):=becede(10 downto 7)+"0011";
+	end if;
+	if becede(14 downto 11)>=5 then
+		becede(14 downto 11):=becede(14 downto 11)+"0011";
+	end if;	
+	becede(18 downto 0) := becede(17 downto 0)&'0';
+end loop;
+bcd <= becede(18 downto 7);
+end process;
+end test;
